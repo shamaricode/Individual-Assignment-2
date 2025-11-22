@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Shamari Haynes">
+    <meta name="description" content="This a single-page e-commerce website for homemade artisanal goods with product listing, shopping cart funcitionality, user authentication and checkout process.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtisanCraft - Handmade Artisanal Goods</title>
+    <link rel="stylesheet" href="artisan.css">
+    <link rel="icon" href="/Assets/wooden-lettericon.avif">
+</head>
+<body>
+    <!-- Header section with logo, title and navigation -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#" onclick="showPage('about')"><img src="/Assets/ArtisanLogo.png" alt="ArtisanCraft Logo"></a>
+            </div>
+            <!-- Page title centered  -->
+            <div class="title-container">
+                <h1 class="page-title"><strong><span>Artisan Craft</span></strong></h1>
+            </div>
+            <!-- Navigation bar -->
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('products')">Products</a></li>
+                    <li><a href="#" onclick="showPage('cart')">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="#" onclick="showPage('login')">Login</a></li>
+                    <li><a href="#" onclick="showPage('register')">Register</a></li>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Slogan -->
+            <div class="slogan">
+                <h2><strong>Feel the Power Behind Every Stitch</strong></h2>
+                <p class="slogan-subtitle">Handcrafted with passion, delivered with care</p>
+            </div>
+            
+            <h1>Welcome to ArtisanCraft</h1>
+            <p>Discover unique, handmade artisanal goods crafted with passion and tradition.</p>
+            
+            <!-- Product grid for home page -->
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/AsianPottery.avif" alt="Handmade Pottery">
+                    </div>
+                    <div class="product-info">
+                        <h3>Artisan Pottery</h3>
+                        <p>Beautiful hand-thrown pottery with unique glazes.</p>
+                        <div class="product-price">$45.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Artisan Pottery', 45.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/HandwovenScafs.webp" alt="Handwoven Scarf">
+                    </div>
+                    <div class="product-info">
+                        <h3>Handwoven Scarf</h3>
+                        <p>Luxurious scarf made with natural fibers and traditional techniques.</p>
+                        <div class="product-price">$35.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Handwoven Scarf', 35.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/WoddenSculptures.jpg" alt="Wooden Sculpture">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wooden Sculpture</h3>
+                        <p>Intricately carved wooden sculpture from reclaimed wood.</p>
+                        <div class="product-price">$75.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Wooden Sculpture', 75.00)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Page -->
+        <section id="products" class="page">
+            <h1>Our Products</h1>
+            <p>Browse our collection of handmade artisanal goods.</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/AsianPottery.avif" alt="Artisan Pottery">
+                    </div>
+                    <div class="product-info">
+                        <h3>Artisan Pottery</h3>
+                        <p>Beautiful hand-thrown pottery with unique glazes.</p>
+                        <div class="product-price">$45.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Artisan Pottery', 45.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/HandwovenScafs.webp" alt="Handwoven Scarf">
+                    </div>
+                    <div class="product-info">
+                        <h3>Handwoven Scarf</h3>
+                        <p>Luxurious scarf made with natural fibers and traditional techniques.</p>
+                        <div class="product-price">$35.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Handwoven Scarf', 35.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/WoddenSculptures.jpg" alt="Wooden Sculpture">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wooden Sculpture</h3>
+                        <p>Intricately carved wooden sculpture from reclaimed wood.</p>
+                        <div class="product-price">$75.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Wooden Sculpture', 75.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/Handmadewallet.webp" alt="Handmade Leather Wallet">
+                    </div>
+                    <div class="product-info">
+                        <h3>Handmade Leather Wallet</h3>
+                        <p>Durable wallet crafted from premium vegetable-tanned leather.</p>
+                        <div class="product-price">$60.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Handmade Leather Wallet', 60.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/SilverPendant.jpg" alt="Silver Pendant">
+                    </div>
+                    <div class="product-info">
+                        <h3>Silver Pendant</h3>
+                        <p>Elegant silver pendant with semi-precious stone.</p>
+                        <div class="product-price">$85.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Silver Pendant', 85.00)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Assets/SoywaxCandles.webp" alt="Soy Wax Candles">
+                    </div>
+                    <div class="product-info">
+                        <h3>Soy Wax Candle</h3>
+                        <p>Hand-poured soy wax candle with essential oils.</p>
+                        <div class="product-price">$25.00</div>
+                        <button class="add-to-cart" onclick="addToCart('Soy Wax Candle', 25.00)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Page -->
+        <section id="cart" class="page">
+            <h1>Shopping Cart</h1>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right">Subtotal:</td>
+                        <td id="cart-subtotal">$0.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-right">Tax (15%):</td>
+                        <td id="cart-tax">$0.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-right">Total:</td>
+                        <td id="cart-total">$0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="mt-20">
+                <button class="btn-danger" onclick="clearCart()">Clear All</button>
+                <button class="btn-secondary" onclick="showPage('products')">Continue Shopping</button>
+                <button onclick="showPage('checkout')">Proceed to Checkout</button>
+            </div>
+        </section>
+
+        <!-- Checkout Page -->
+        <section id="checkout" class="page">
+            <h1>Checkout</h1>
+            
+            <div class="checkout-summary mb-20">
+                <h2>Order Summary</h2>
+                <div id="checkout-items">
+                    <!-- Checkout items will be populated by JavaScript -->
+                </div>
+                <p><strong>Subtotal:</strong> <span id="checkout-subtotal">$0.00</span></p>
+                <p><strong>Tax (15%):</strong> <span id="checkout-tax">$0.00</span></p>
+                <p><strong>Total:</strong> <span id="checkout-total">$0.00</span></p>
+            </div>
+            
+            <h2>Shipping Information</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment">Payment Method</label>
+                    <select id="payment" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="credit">Credit Card</option>
+                        <option value="debit">Debit Card</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </div>
+                
+                <div class="mt-20">
+                    <button type="button" class="btn-secondary" onclick="showPage('cart')">Back to Cart</button>
+                    <button type="button" onclick="processCheckout()">Confirm Order</button>
+                    <button type="button" class="btn-danger" onclick="showPage('cart')">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Invoice Page -->
+        <section id="invoice" class="page">
+            <h1>Order Invoice</h1>
+            <div id="invoice-details">
+                <!-- Invoice details will be populated by JavaScript -->
+            </div>
+            <div class="mt-20">
+                <button onclick="printInvoice()">Print Invoice</button>
+                <button class="btn-secondary" onclick="showPage('home')">Back to Home</button>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="login" class="page">
+            <h1>Login</h1>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" onclick="loginUser()">Login</button>
+                    <button type="button" class="btn-secondary" onclick="showPage('register')">Register</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Registration Page -->
+        <section id="register" class="page">
+            <h1>Register</h1>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-dob">Date of Birth</label>
+                    <input type="date" id="reg-dob" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-confirm-password">Confirm Password</label>
+                    <input type="password" id="reg-confirm-password" required>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" onclick="registerUser()">Register</button>
+                    <button type="button" class="btn-secondary" onclick="showPage('login')">Already have an account?</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- About Us Page -->
+        <section id="about" class="page">
+            <h1>About Us</h1>
+            <p>ArtisanCraft is dedicated to preserving traditional craftsmanship while supporting local artisans. We connect talented craftspeople with customers who appreciate handmade unique products.</p>
+            
+            <h2>Contact Information</h2>
+            <p><strong>Full Name:</strong> Shamari Haynes</p>
+            <p><strong>ID#:</strong> 2302648</p>
+            <p><strong>Email:</strong> <a href="mailto:shamaridhaynes@students.utech.edu.jm">shamaridhaynes@students.utech.edu.jm</a></p>
+            <p><strong>Module Code:</strong> CIT2011</p>
+            <p><strong>Assignment Name:</strong> Individual Assignment 
+            #2</p>
+            <p><strong>Day/Time of Class:</strong> Monday 6 - 9 PM</p>
+            
+            <p class="mt-20">For any inquiries, please contact us at: <a href="mailto:shamaridhaynes@students.utech.edu.jm">shamaridhaynes@students.utech.edu.jm</a></p>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ArtisanCraft. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cart data structure
+        let cart = [];
+        
+        // Page navigation function
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update cart display if navigating to cart or checkout
+            if (pageId === 'cart') {
+                updateCartDisplay();
+            } else if (pageId === 'checkout') {
+                updateCheckoutDisplay();
+            }
+        }
+        
+        // Add item to cart
+        function addToCart(name, price) {
+            // Check if item already in cart
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            // Update cart count in navigation
+            updateCartCount();
+            
+            // Show confirmation
+            alert(`${name} added to cart!`);
+        }
+        
+        // Update cart count in navigation
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>
+                        <input type="number" value="${item.quantity}" min="1" 
+                               onchange="updateQuantity('${item.name}', this.value)">
+                    </td>
+                    <td>$${itemSubtotal.toFixed(2)}</td>
+                    <td>
+                        <button class="btn-danger" onclick="removeFromCart('${item.name}')">Remove</button>
+                    </td>
+                `;
+                cartItems.appendChild(row);
+            });
+            
+            const tax = subtotal * 0.15;
+            const total = subtotal + tax;
+            
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+        }
+        
+        // Update quantity of item in cart
+        function updateQuantity(name, newQuantity) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity = parseInt(newQuantity);
+                updateCartDisplay();
+                updateCartCount();
+            }
+        }
+        
+        // Remove item from cart
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartDisplay();
+            updateCartCount();
+        }
+        
+        // Clear all items from cart
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+                cart = [];
+                updateCartDisplay();
+                updateCartCount();
+            }
+        }
+        
+        // Update checkout display
+        function updateCheckoutDisplay() {
+            const checkoutItems = document.getElementById('checkout-items');
+            checkoutItems.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal;
+                
+                const itemDiv = document.createElement('div');
+                itemDiv.innerHTML = `
+                    <p>${item.name} x ${item.quantity} - $${itemSubtotal.toFixed(2)}</p>
+                `;
+                checkoutItems.appendChild(itemDiv);
+            });
+            
+            const tax = subtotal * 0.15;
+            const total = subtotal + tax;
+            
+            document.getElementById('checkout-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('checkout-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('checkout-total').textContent = `$${total.toFixed(2)}`;
+        }
+        
+        // Process checkout
+        function processCheckout() {
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            const payment = document.getElementById('payment').value;
+            
+            if (!fullName || !email || !address || !city || !zip || !payment) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Generate invoice
+            generateInvoice(fullName, email, address, city, zip, payment);
+            
+            // Clear cart
+            cart = [];
+            updateCartCount();
+            
+            // Show invoice page
+            showPage('invoice');
+        }
+        
+        // Generate invoice
+        function generateInvoice(fullName, email, address, city, zip, payment) {
+            const invoiceDetails = document.getElementById('invoice-details');
+            let subtotal = 0;
+            
+            let invoiceHTML = `
+                <p><strong>Invoice Date:</strong> ${new Date().toLocaleDateString()}</p>
+                <p><strong>Order ID:</strong> AC-${Math.floor(Math.random() * 10000)}</p>
+                
+                <h2>Shipping Information</h2>
+                <p><strong>Name:</strong> ${fullName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Address:</strong> ${address}, ${city}, ${zip}</p>
+                
+                <h2>Order Details</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            cart.forEach(item => {
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal;
+                
+                invoiceHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${itemSubtotal.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+            
+            const tax = subtotal * 0.15;
+            const total = subtotal + tax;
+            
+            invoiceHTML += `
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-right">Subtotal:</td>
+                            <td>$${subtotal.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Tax (15%):</td>
+                            <td>$${tax.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Total:</td>
+                            <td>$${total.toFixed(2)}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                
+                <p><strong>Payment Method:</strong> ${payment}</p>
+                <p><strong>Order Status:</strong> Processing</p>
+            `;
+            
+            invoiceDetails.innerHTML = invoiceHTML;
+        }
+        
+        // Print invoice
+        function printInvoice() {
+            window.print();
+        }
+        
+        // Login user
+        function loginUser() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!username || !password) {
+                alert('Please enter both username and password.');
+                return;
+            }
+            
+            if (username === 'demo' && password === 'password') {
+                alert('Login successful!');
+                showPage('home');
+            } else {
+                alert('Invalid username or password. Try demo/password');
+            }
+        }
+        
+        // Register user
+        function registerUser() {
+            const name = document.getElementById('reg-name').value;
+            const dob = document.getElementById('reg-dob').value;
+            const email = document.getElementById('reg-email').value;
+            const username = document.getElementById('reg-username').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-confirm-password').value;
+            
+            if (!name || !dob || !email || !username || !password || !confirmPassword) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+            
+            alert('Registration successful! You can now login.');
+            showPage('login');
+        }
+        
+        // Initialize cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
